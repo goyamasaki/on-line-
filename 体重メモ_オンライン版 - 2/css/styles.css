@@ -1,0 +1,114 @@
+/*はじまりのｃｓｓ*/
+h1{
+  font-family: sans-serif;
+  font-size: large;
+  background-color: #151414;
+  border-radius: 70%;
+  text-align: center;
+  padding: 15px;
+  color: #73dc58;
+  width: 226px;
+  height: 22px;
+}
+
+h2{
+  display: block;
+  /* padding: 0px; */
+  margin-bottom: -16px;
+  /* border: black; */
+  /* background-color: azure; */
+}
+p{
+  border: 1px solid;
+  margin: 7px 7px 7px 2px;
+  width: 127px;
+  background-color: #a9c723;
+  border-radius:5px;
+}
+
+#send {
+  background-color: #edf2f3;;
+  cursor: pointer;}
+/* マウスオーバー時の背景色 */
+#send:hover {
+  background-color: #e00c29;
+  }
+ 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  padding: 0;
+  border: 1;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body{
+    display: flex;
+    margin: 30px;
+    flex-direction: column;
+    /* padding: 0 0 0; */
+
+div{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+ 
+#text{
+    font-family: sans-serif;
+    font-size: large;
+    margin: 0;
+}
+
+#namae{
+    font-family: sans-serif;
+    font-size: large;
+    margin: 0;
+}
+
+#username{
+    font-family: sans-serif;
+    font-size: large;
+}

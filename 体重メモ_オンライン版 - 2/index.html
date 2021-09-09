@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on-line体重メモ2</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <h1>◀on-line体重メモ2▶</h1>
+  <h2>毎日コツコツ体重を入力しよう✎</h2><br>
+  <!-- コンテンツ表示画面 -->
+  <div>
+    <!-- 日付 -->
+    <h2>日付</h2><br>
+    <input type="date" id="username">
+  </div>
+
+  <div>
+    <!-- 体重エリア -->
+    <h2>体重</h2><br>
+ 
+    <input type="number" placeholder="50" step="0.1" min="50" max="90" id="text">
+  kg(50㌔～90㌔）</div>
+
+  <div>
+    <!-- 送信ボタン -->
+
+    <button id="send">送信</button>
+  </div>
+ 
+<h2>🔳この下に記録された日付と体重が表示されます🔳</h2><br><br>
+  <div>
+    <!-- 保存されたデータが表示される箇所 -->
+    <div id="output"></div>
+  </div>
+ 
+
+  <!--/ コンテンツ表示画面 -->
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- JQuery -->
+
+  <!--fireＢＡＳＥのリンク-->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+       authDomain: "dev21chat-43b32.firebaseapp.com",
+      databaseURL: "https://dev21chat-43b32-default-rtdb.firebaseio.com/",
+      projectId: "dev21chat-43b32",
+      storageBucket: "dev21chat-43b32.appspot.com",
+      messagingSenderId: "1095171786898",
+      appId: "1:1095171786898:web:540679319a1520ba3b3e4b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //firebaseのデーターベース（保存させる場所）を使いますよ
+    const newPostRef = firebase.database().ref();
+
+
+    // ここから下にjqueryの処理を書いて練習します
+
+    // 送信ボタンをクリックされたら次の処理をする
+    $("#send").on("click", function () {
+      // データを登録で送る
+      newPostRef.push({
+        username: $("#username").val(), //名前
+        text: $("#text").val(), //テキストエリア
+      })
+      $("#text").val(""); //空にする
+      $("#username").val(""); //空にする
+    });
+
+    // 受信処理
+    newPostRef.on("child_added", function (data) {
+      let v = data.val(); //ここに保存されたデータが全て入ってくる
+      // let k = data.key; //今回は使いません
+      
+
+      console.log(v); //vの変数に入っているオブジェクトを全てみる
+
+      let str = `<p>${v.username}<br>${v.text}</p>`;
+
+      // ここでデータをhtmlに埋め込む
+      $("#output").prepend(str);
+    })
+
+    $("#text").on("keydown", function (e) {
+
+    })
+
+ 
+  </script>
+</body>
+
+</html>
